@@ -99,8 +99,7 @@
 					| If you are representing services by something more or other than an HTTPS URL whereat they are able to
 					| receive a proxy callback, you will need to change this bean declaration (or add additional declarations).
 					+-->
-				<bean
-					class="org.jasig.cas.authentication.principal.HttpBasedServiceCredentialsToPrincipalResolver" />
+				<bean class="org.jasig.cas.authentication.principal.HttpBasedServiceCredentialsToPrincipalResolver" />
 			</list>
 		</property>
 
@@ -134,7 +133,7 @@
                             <property name="driverClassName" value="com.mysql.jdbc.Driver" />
                             <property name="url" value="jdbc:mysql://localhost:3306/cas?useUnicode=true&amp;characterEncoding=utf-8" />
                             <property name="username" value="root" />
-                            <property name="password" value="" />
+                            <property name="password" value="SreeharI@123#" />
                         </bean>
                     </property>
                     <property name="sql" value="select password from cas_users where username=?" />

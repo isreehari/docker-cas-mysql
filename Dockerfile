@@ -1,6 +1,6 @@
 FROM wnameless/mysql-phpmyadmin
 
-MAINTAINER Wei-Ming Wu <wnameless@gmail.com>
+MAINTAINER Sreehari Inukollu <isreehari@hotmail.com>
 
 # Install libfuse2
 RUN apt-get install -y libfuse2; \
@@ -25,13 +25,13 @@ RUN sed -i "s#</tomcat-users>##g" /etc/tomcat7/tomcat-users.xml; \
 	echo '  <role rolename="manager-status"/>' >>  /etc/tomcat7/tomcat-users.xml; \
 	echo '  <role rolename="admin-gui"/>' >>  /etc/tomcat7/tomcat-users.xml; \
 	echo '  <role rolename="admin-script"/>' >>  /etc/tomcat7/tomcat-users.xml; \
-	echo '  <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status, admin-gui, admin-script"/>' >>  /etc/tomcat7/tomcat-users.xml; \
+	echo '  <user username="admin" password="SreeharI@123#" roles="manager-gui, manager-script, manager-jmx, manager-status, admin-gui, admin-script"/>' >>  /etc/tomcat7/tomcat-users.xml; \
 	echo '</tomcat-users>' >> /etc/tomcat7/tomcat-users.xml
 
 # Configure https
 RUN sed -i "s#</Server>##g" /etc/tomcat7/server.xml; \
 	sed -i "s#  </Service>##g" /etc/tomcat7/server.xml; \
-	echo '    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" keystoreFile="/usr/share/tomcat7/.keystore" keystorePass="tomcat_admin" />' >> /etc/tomcat7/server.xml; \
+	echo '    <Connector port="51251" protocol="HTTP/1.1" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" keystoreFile="/usr/share/tomcat7/.keystore" keystorePass="tomcat_admin" />' >> /etc/tomcat7/server.xml; \
 	echo '  </Service>' >> /etc/tomcat7/server.xml; \
 	echo '</Server>' >> /etc/tomcat7/server.xml
 
