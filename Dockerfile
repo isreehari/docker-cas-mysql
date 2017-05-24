@@ -55,17 +55,14 @@ RUN cd /tmp; \
 #	sleep 10
 
 # Replace CAS deployerConfigContext.xml & install MySQL driver
-ADD deployerConfigContext.xml /
-ADD mysql-connector-java-5.1.42-bin.jar /
-RUN mv deployerConfigContext.xml /var/lib/tomcat8/webapps/cas/WEB-INF/deployerConfigContext.xml; \
-	mv mysql-connector-java-5.1.42-bin.jar /var/lib/tomcat8/webapps/cas/WEB-INF/lib
+#ADD deployerConfigContext.xml /
+#ADD mysql-connector-java-5.1.42-bin.jar /
+#RUN mv deployerConfigContext.xml /var/lib/tomcat8/webapps/cas/WEB-INF/deployerConfigContext.xml; \
+#	mv mysql-connector-java-5.1.42-bin.jar /var/lib/tomcat8/webapps/cas/WEB-INF/lib
 
 EXPOSE 8080
 EXPOSE 51251
 
 CMD chmod 1777 /tmp; \
-#	mysqld_safe & \
-#	service apache2 start; \
-	[ ! -f /etc/tomcat8/cas.keystore ] && printf tomcat_admin\\ntomcat_admin\\n\\n\\n\\n\\n\\n\\ny\\ntomcat_admin\\ntomcat_admin\\n | keytool -genkey -alias tomcat -keyalg RSA -keystore /etc/tomcat8/cas.keystore; \
-	service tomcat8 start; \
-	/usr/sbin/sshd -D
+[ ! -f /etc/tomcat8/cas.keystore ] && printf tomcat_admin\\ntomcat_admin\\n\\n\\n\\n\\n\\n\\ny\\ntomcat_admin\\ntomcat_admin\\n | keytool -genkey -alias tomcat -keyalg RSA -keystore /etc/tomcat8/cas.keystore; \
+service tomcat8 start
