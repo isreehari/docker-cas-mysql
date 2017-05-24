@@ -2,6 +2,9 @@ FROM ubuntu:16.04
 
 MAINTAINER Sreehari Inukollu <isreehari@hotmail.com>
 
+# Update
+RUN apt-get update
+
 # Install libfuse2
 RUN apt-get install -y libfuse2; \
 	cd /tmp; \
@@ -15,6 +18,9 @@ RUN apt-get install -y libfuse2; \
 
 # Install Java 8
 RUN apt-get install -y openjdk-8-jdk
+
+#wget 
+RUN apt-get install -y wget
 
 # Install Tomcat 7
 RUN apt-get install -y tomcat8 tomcat8-admin
